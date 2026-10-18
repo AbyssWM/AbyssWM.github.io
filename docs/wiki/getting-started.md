@@ -107,7 +107,7 @@ Installing a tool does not configure it or start its user service. See
 Pick **Abyssland** in your display manager, or run `start-abyssland` from a TTY.
 
 Packages ship the public default C++ configuration. The
-[configuration reference](/wiki/configuration) explains the API and the user
+[configuration guide](/wiki/config/) explains the API and the user
 config at `~/.config/abyss/config.hpp`. Rebuilding your own config from a package
 installation needs the matching `-devel` / `-dev` packages and a compiler; this
 workflow is not fully validated yet.

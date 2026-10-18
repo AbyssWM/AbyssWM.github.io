@@ -123,7 +123,7 @@ Used as `abyssctl dispatch <name> [args]`:
 
 `exec`, `execr`, `killactive`, `forcekillactive`, `closewindow`, `killwindow`, `signal`, `signalwindow`, `togglefloating`, `setfloating`, `settiled`, `workspace`, `renameworkspace`, `fullscreen`, `fullscreenstate`, `movetoworkspace`, `movetoworkspacesilent`, `pseudo`, `movefocus`, `movewindow`, `swapwindow`, `centerwindow`, `togglegroup`, `changegroupactive`, `movegroupwindow`, `focusmonitor`, `movecursortocorner`, `movecursor`, `workspaceopt`, `exit`, `movecurrentworkspacetomonitor`, `focusworkspaceoncurrentmonitor`, `moveworkspacetomonitor`, `togglespecialworkspace`, `forcerendererreload`, `resizeactive`, `moveactive`, `cyclenext`, `focuswindowbyclass`, `focuswindow`, `tagwindow`, `toggleswallow`, `submap`, `pass`, `sendshortcut`, `sendkeystate`, `layoutmsg`, `setlayout`, `dpms`, `movewindowpixel`, `resizewindowpixel`, `swapnext`, `swapactiveworkspaces`, `pin`, `mouse`, `bringactivetotop`, `alterzorder`, `focusurgentorlast`, `focuscurrentorlast`, `lockgroups`, `lockactivegroup`, `moveintogroup`, `moveoutofgroup`, `movewindoworgroup`, `moveintoorcreategroup`, `setignoregrouplock`, `denywindowfromgroup`, `event`, `global`, `setprop`, `forceidle`, `screensaver`, `releaseinputcapture`.
 
-Layout dispatchers `setlayout` and `layoutmsg` are described in the [configuration](/wiki/configuration#custom-layouts) page.
+Layout dispatchers `setlayout` and `layoutmsg` are described in the [custom layouts](/wiki/config/layouts) page.
 
 ## Companion tools
 

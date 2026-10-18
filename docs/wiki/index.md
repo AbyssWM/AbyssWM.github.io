@@ -5,7 +5,7 @@ Everything about installing, configuring and using Abyss. The project is in earl
 | Page | Contents |
 |---|---|
 | [Installation](/wiki/getting-started) | Distribution package sources, publication status and session startup |
-| [Configuration (Abysslang)](/wiki/configuration) | The compiled C++ config: options, binds, rules, animations, events, timers, submaps, layouts |
+| [Configuration guide](/wiki/config/) | The compiled C++ config, one page per topic with examples: options, monitors, binds, rules, animations, events, idle, screensaver, layouts, complete example configs |
 | [abyssctl reference](/wiki/abyssctl) | Command line control of a running Abyssland |
 | [Patching and replacing](/wiki/patching) | Replace portals, helpers, GPU settings and more, `abyssctl doctor` |
 | [Tools](/wiki/tools) | AbyssDusk (blue light filter) and AbyssPicker (color picker) |

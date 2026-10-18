@@ -14,7 +14,7 @@ hero:
       link: /wiki/getting-started
     - theme: alt
       text: Configuration
-      link: /wiki/configuration
+      link: /wiki/config/
     - theme: alt
       text: GitHub
       link: https://github.com/AbyssWM
@@ -22,8 +22,8 @@ features:
   - icon: 🗡️
     title: Abysslang
     details: Your config is a C++ file with typed options. A typo is a compile error, binds are real lambdas, and abyssctl reload rebuilds and restarts the compositor.
-    link: /wiki/configuration
-    linkText: Read the reference
+    link: /wiki/config/
+    linkText: Read the configuration guide
   - icon: ⚙️
     title: Its own libraries
     details: The whole Hyprland stack is forked and renamed – Abyssal, Abyssutils, Abyssparse and more – so the ecosystem builds and updates as one, independent of system packages.

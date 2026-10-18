@@ -29,7 +29,7 @@ the publication status of each distribution source. Abyss remains in 0.x develop
 
 ## Interfaces are renamed too
 
-Abyss does not pretend to be Hyprland: environment variables are `ABYSSLAND_*`, sockets live in `$XDG_RUNTIME_DIR/abyss`, protocols are called `abyssland_*`, `XDG_CURRENT_DESKTOP` is `Abyssland` and the control tool is `abyssctl`. Lua configs and plugins are removed; configuration is [Abysslang](/wiki/configuration).
+Abyss does not pretend to be Hyprland: environment variables are `ABYSSLAND_*`, sockets live in `$XDG_RUNTIME_DIR/abyss`, protocols are called `abyssland_*`, `XDG_CURRENT_DESKTOP` is `Abyssland` and the control tool is `abyssctl`. Lua configs and plugins are removed; configuration is [Abysslang](/wiki/config/).
 
 ## Tools
 

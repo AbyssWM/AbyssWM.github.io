@@ -19,7 +19,7 @@ Without changes you get the default behavior, and that is the supported setup. I
 
 ## GPU options (`c.gpu`)
 
-`c.gpu` is the typed form of the `ABYSSAL_*` variables (see [NVIDIA](/wiki/nvidia#environment-variables-hyprland-abyss)).
+`c.gpu` is the typed form of the `ABYSSAL_*` variables (see [NVIDIA](/wiki/nvidia)).
 
 ```cpp
 c.gpu.devices        = {"/dev/dri/by-path/pci-0000:0b:00.0-card", "/dev/dri/card1"};

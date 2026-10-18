@@ -42,9 +42,25 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Configuration guide',
+          items: [
+            { text: 'Quickstart', link: '/wiki/config/' },
+            { text: 'Options', link: '/wiki/config/options' },
+            { text: 'Monitors and workspaces', link: '/wiki/config/monitors' },
+            { text: 'Keybinds and actions', link: '/wiki/config/keybinds' },
+            { text: 'Rules', link: '/wiki/config/rules' },
+            { text: 'Animations', link: '/wiki/config/animations' },
+            { text: 'Events, idle, screensaver', link: '/wiki/config/events' },
+            { text: 'Queries and notifications', link: '/wiki/config/queries' },
+            { text: 'Custom layouts', link: '/wiki/config/layouts' },
+            { text: 'Environment and helpers', link: '/wiki/config/system' },
+            { text: 'Example configs', link: '/wiki/config/examples' }
+          ]
+        },
+        {
           text: 'Using Abyssland',
           items: [
-            { text: 'Configuration (Abysslang)', link: '/wiki/configuration' },
+            { text: 'Configuration overview', link: '/wiki/configuration' },
             { text: 'Wayland protocols', link: '/wiki/protocols' },
             { text: 'abyssctl reference', link: '/wiki/abyssctl' },
             { text: 'Patching and replacing', link: '/wiki/patching' },
