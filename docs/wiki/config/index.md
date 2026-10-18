@@ -134,7 +134,7 @@ abyssctl rollinglog -f  # follow the compositor log
 :::
 
 ::: info Package installations
-Distribution packages ship the public default configuration. `abyssctl reload` needs a configured Abyssland build tree (it looks for `CMakeCache.txt` in the build directory) and permission to install the rebuilt binary into the prefix. The Abyssland package does not install the build tree, so for a package installation you need the Abyssland sources, a C++26 compiler (a recent GCC), CMake, and the `-devel` / `-dev` packages of the Abyss libraries (for example `abyssutils-devel` on Fedora and Void, `libabyssutils-dev` on Debian and Ubuntu). **This workflow has not been fully validated for package installations yet.** See [Installation](/wiki/getting-started#build-from-source) for the build steps.
+Distribution packages ship the public default configuration. On a package installation the first `abyssctl reload` sets up your own build in the hidden `~/.config/abyss/.build` (sources in `.build/src`, cloned if missing) and replaces the installed compositor binary (`/usr/bin/Abyssland` for packages) with your build, asking for root via `sudo` or `pkexec`. A package update puts the packaged binary back, so run `abyssctl reload` again after one. You need git, CMake, a C++26 compiler (a recent GCC) and the `-devel` / `-dev` packages of the Abyss libraries (for example `abyssutils-devel` on Fedora and Void, `libabyssutils-dev` on Debian and Ubuntu). Details in the [abyssctl reference](/wiki/abyssctl#reload).
 :::
 
 ## Common compile errors

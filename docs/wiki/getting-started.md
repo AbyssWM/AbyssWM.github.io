@@ -108,9 +108,9 @@ Pick **Abyssland** in your display manager, or run `start-abyssland` from a TTY.
 
 Packages ship the public default C++ configuration. The
 [configuration guide](/wiki/config/) explains the API and the user
-config at `~/.config/abyss/config.hpp`. Rebuilding your own config from a package
-installation needs the matching `-devel` / `-dev` packages and a compiler; this
-workflow is not fully validated yet.
+config at `~/.config/abyss/config.hpp`. After editing it, run `abyssctl reload`:
+the first run sets up your own build in `~/.config/abyss/.build`, later runs only
+rebuild and restart. It needs the matching `-devel` / `-dev` packages, git and a compiler.
 
 ## Build from source
 
