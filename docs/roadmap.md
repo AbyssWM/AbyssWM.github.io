@@ -1,6 +1,6 @@
 # Roadmap
 
-Abyss is in early development (**0.x**). Experimental packages are being prepared before **1.0.0**, starting with Fedora COPR. This page lists what is planned; the order is roughly by usefulness for everyday use.
+Abyss is in early development (**0.x**). Experimental packages are available for Fedora, Debian, Ubuntu, Arch, Void and Gentoo ahead of **1.0.0**. This page lists what is planned; the order is roughly by usefulness for everyday use.
 
 ::: warning Work in progress
 Nothing on this page is a promise of a date. Details may change.
@@ -59,13 +59,14 @@ All six distribution recipe repositories contain definitions for all 17 code
 projects. Publication status and installation instructions live on the
 [Installation](/wiki/getting-started) page.
 
-- **Fedora:** COPR first; target Fedora 44 and 45 on x86_64, then real-session tests
-- **Ubuntu:** Launchpad PPA after release/dependency selection and signed source uploads
-- **Debian:** a signed APT source
-- **Void Linux:** a signed XBPS source; the 17 primary packages have built on x86_64/glibc
-- **Gentoo:** a source overlay with all 17 ebuilds; native verification continues
-- **Arch Linux:** PKGBUILDs prepared, native verification and AUR publication pending
-- **Mint / LMDE:** test against the matching Ubuntu / Debian base
+- ✅ **Fedora 44 / 45:** COPR, all 17 packages published
+- ✅ **Debian forky / Ubuntu 26.10:** `.deb` files on every GitHub release
+- ✅ **Arch Linux:** PKGBUILDs, all 17 built natively — AUR once registration reopens
+- ✅ **Void Linux:** xbps-src templates, all 17 built
+- ✅ **Gentoo:** source overlay, all 17 built with Portage
+- ⏳ Real-session and hardware tests
+- ⏳ Signed APT / XBPS repositories with automatic updates
+- ⏳ Older bases (Debian 13, Ubuntu 24.04/26.04, Mint 22) once their libraries catch up
 
 Tagged releases, installation tests and the outstanding correctness work remain
 requirements for 1.0.0. Recipe preparation and successful builds alone do not

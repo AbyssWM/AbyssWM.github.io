@@ -39,7 +39,7 @@ features:
 <div class="home-notice">
 
 ::: warning Early development (0.x)
-Abyss is being built right now and is **not ready for daily use**. Experimental distribution packages are being prepared before 1.0.0, starting with Fedora COPR. See [Installation](/wiki/getting-started) for package sources and their publication status. Parts of these docs are marked *work in progress*.
+Abyss is being built right now and is **not ready for daily use**. Experimental packages for Fedora, Debian, Ubuntu, Arch, Void and Gentoo are already available. See [Installation](/wiki/getting-started) for package sources and their publication status. Parts of these docs are marked *work in progress*.
 :::
 
 </div>
