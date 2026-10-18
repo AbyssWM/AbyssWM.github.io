@@ -4,9 +4,9 @@ Abyss ships as normal distribution packages: the compositor, its libraries, the
 desktop portal and all companion tools. Everything installs to `/usr` and your
 package manager owns the files.
 
-::: warning Experimental, pre-1.0
-All 17 packages build natively on the distributions below, but real-session and
-hardware tests are only starting now. Expect rough edges.
+::: warning First release
+All 17 packages build natively on the distributions below. This is the first
+release: expect bugs and please report them.
 :::
 
 ## Pick your distribution

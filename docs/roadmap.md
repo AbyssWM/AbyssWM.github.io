@@ -1,6 +1,6 @@
 # Roadmap
 
-Abyss is in early development (**0.x**). Experimental packages are available for Fedora, Debian, Ubuntu, Arch, Void and Gentoo ahead of **1.0.0**. This page lists what is planned; the order is roughly by usefulness for everyday use.
+Abyss is out as a **first release**. Packages are available for Fedora, Debian, Ubuntu, Arch, Void and Gentoo; expect bugs and please report them. This page lists what is planned; the order is roughly by usefulness for everyday use.
 
 ::: warning Work in progress
 Nothing on this page is a promise of a date. Details may change.
