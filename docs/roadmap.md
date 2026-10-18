@@ -62,10 +62,10 @@ projects. Publication status and installation instructions live on the
 - ✅ **Fedora 44 / 45:** COPR, all 17 packages published
 - ✅ **Debian forky / Ubuntu 26.10:** `.deb` files on every GitHub release
 - ✅ **Arch Linux:** PKGBUILDs, all 17 built natively — AUR once registration reopens
-- ✅ **Void Linux:** xbps-src templates, all 17 built
+- ✅ **Void Linux:** signed XBPS repository, all 17 published
 - ✅ **Gentoo:** source overlay, all 17 built with Portage
 - ⏳ Real-session and hardware tests
-- ⏳ Signed APT / XBPS repositories with automatic updates
+- ⏳ Signed APT repository with automatic updates
 - ⏳ Older bases (Debian 13, Ubuntu 24.04/26.04, Mint 22) once their libraries catch up
 
 Tagged releases, installation tests and the outstanding correctness work remain

@@ -17,7 +17,7 @@ hardware tests are only starting now. Expect rough edges.
 | **Debian forky (testing)** | `.deb` from GitHub releases | ✅ 17 / 17 built and installed |
 | **Ubuntu 26.10** | `.deb` from GitHub releases | ✅ 17 / 17 built and installed |
 | **Arch Linux** | [PKGBUILDs](https://github.com/AbyssWM/arch-builds) | ✅ 17 / 17 built with makepkg — not on the AUR yet |
-| **Void Linux** | [xbps-src templates](https://github.com/AbyssWM/void-builds) | ✅ 17 / 17 built |
+| **Void Linux** | [Signed XBPS repo](https://github.com/AbyssWM/void) | ✅ 17 / 17 built and published |
 | **Gentoo** | [Overlay](https://github.com/AbyssWM/gentoo-builds) | ✅ 17 / 17 built with Portage |
 | Debian 13 · LMDE 7 | — | ⚠️ libraries build, Abyssland needs newer xkbcommon, wayland-protocols and libinput |
 | Ubuntu 26.04 | — | ⚠️ libraries build, Abyssland needs wayland-protocols ≥ 1.49 |
@@ -50,6 +50,11 @@ done
 sudo apt install ./*.deb
 ```
 
+```sh [Void]
+echo "repository=https://abysswm.github.io/void" | sudo tee /etc/xbps.d/abyss.conf
+sudo xbps-install -S abyssland
+```
+
 ```sh [Arch]
 git clone https://github.com/AbyssWM/arch-builds.git
 cd arch-builds/packages
@@ -67,10 +72,9 @@ emerge --ask gui-wm/abyssland
 
 :::
 
-**Void Linux:** copy the `srcpkgs/abyss*` templates (and the `shlibs` entries)
-from [void-builds](https://github.com/AbyssWM/void-builds) into your
-`void-packages` checkout and build them with `./xbps-src pkg abyssland`. The repo
-README has the full steps.
+**Void Linux:** on the first sync xbps asks to import the repository key
+(signed by `bb8TheRobot <bb8therobot85@gmail.com>`) — answer **y**. Updates then
+come with the normal `sudo xbps-install -Su`.
 
 ## Companion tools
 
@@ -88,7 +92,7 @@ so you only install what you want:
 | `abyss-guiutils` | Dialogs, welcome and update screens |
 
 ```sh
-# Fedora
+# Fedora (on Void: sudo xbps-install …)
 sudo dnf install xdg-desktop-portal-abyss abysslock abysspaper abysspolkit abyssdusk abysspicker abyss-guiutils
 ```
 
