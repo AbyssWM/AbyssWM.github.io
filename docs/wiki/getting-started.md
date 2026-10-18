@@ -104,7 +104,13 @@ Installing a tool does not configure it or start its user service. See
 
 ## Start the session
 
-Pick **Abyssland** in your display manager, or run `start-abyssland` from a TTY.
+Pick **Abyssland** in your display manager, or run `abyssland` from a TTY.
+`abyssland` is `start-abyssland`, the launcher that watches the compositor, falls
+back to the last good binary and restarts it after `abyssctl reload`. Without a
+D-Bus session (a plain TTY on a system without a user bus) it starts one with
+`dbus-run-session`, so portals and notifications work. Like Hyprland, Abyssland
+does not start a polkit agent itself: add `exec("/usr/libexec/abyss-polkit-agent")`
+to `c.onStart` if your system does not start one.
 
 Packages ship the public default C++ configuration. The
 [configuration guide](/wiki/config/) explains the API and the user
