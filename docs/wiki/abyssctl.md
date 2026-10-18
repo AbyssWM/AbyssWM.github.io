@@ -127,9 +127,6 @@ Layout dispatchers `setlayout` and `layoutmsg` are described in the [custom layo
 
 ## Companion tools
 
-::: warning Work in progress
-`abyssctl abysspaper` and `abyssctl abysssunset` are reserved for the planned wallpaper tool and blue-light filter, which do not exist yet (see the [Roadmap](/roadmap)).
-:::
+- `abyssctl abysspaper wallpaper <mon>,<path>[,<fit_mode>]` – change a wallpaper at runtime (needs the `abysspaper` package running)
 
-- `abysspaper wallpaper <mon>,<path>[,<fit_mode>]` – change a wallpaper dynamically
-- `abysssunset temperature <temp>` / `identity` / `gamma <gamma>` – blue-light and gamma filter
+AbyssDusk has no `abyssctl` subcommand; it is configured with its own flags, e.g. `abyssdusk -t 4500` (temperature in K), `abyssdusk -g 90` (gamma in %) or `abyssdusk -i` (no color change). See `abyssdusk --help`.
