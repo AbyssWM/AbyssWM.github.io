@@ -99,8 +99,8 @@ c.helpers.donateScreen = "";
 | Field | Default | Used for |
 |---|---|---|
 | `dialog` | `abyss-dialog` | "app not responding" and permission prompts |
-| `updateScreen` | `abyssland-update-screen` | shown once after an update as `<updateScreen> --new-version <version>`, only without `ecosystem:no_update_news` |
-| `donateScreen` | `abyssland-donate-screen` | donation reminder, no arguments, only without `ecosystem:no_donation_nag` |
+| `updateScreen` | `abyss-update-screen` | shown once after an update as `<updateScreen> --new-version <version>`, only without `ecosystem:no_update_news` |
+| `donateScreen` | `abyss-donate-screen` | donation reminder, no arguments, only without `ecosystem:no_donation_nag` |
 
 An empty value never starts the helper. For the dialog, the request is then treated like a closed dialog: a permission prompt is denied and "app not responding" shows nothing. A helper that is not found is logged when the config loads.
 
