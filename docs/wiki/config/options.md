@@ -5,7 +5,7 @@ Options are typed fields grouped like the sections of the compositor (`general`,
 ```cpp
 c.general.gaps_in     = 5;
 c.general.border_size = 2;
-c.general.col.active_border = gradient({rgba(0x33ccff, 0xee), rgba(0x00ff99, 0xee)}, 45);
+c.general.col.active_border = gradient({rgba(0x4a7bd8, 0xee), rgba(0x1b2f6e, 0xee)}, 45);
 c.decoration.blur.enabled   = true;
 c.input.kb_layout = "us";
 ```
@@ -116,10 +116,10 @@ Window gaps, border size and colors, the active layout, border resizing and floa
 
 | Field | Type | Default | Range / values | Description |
 |---|---|---|---|---|
-| `c.general.col.inactive_border` | gradient | `0xff444444` |  | Border color for inactive windows |
-| `c.general.col.active_border` | gradient | `0xffffffff` |  | Border color for the active window |
-| `c.general.col.nogroup_border` | gradient | `0xffffaaff` |  | Inactive border color for window that cannot be added to a group |
-| `c.general.col.nogroup_border_active` | gradient | `0xffff00ff` |  | Active border color for window that cannot be added to a group |
+| `c.general.col.inactive_border` | gradient | `0xff1a2338` |  | Border color for inactive windows |
+| `c.general.col.active_border` | gradient | `0xff3d6dcc` |  | Border color for the active window |
+| `c.general.col.nogroup_border` | gradient | `0xff5a4f9e` |  | Inactive border color for window that cannot be added to a group |
+| `c.general.col.nogroup_border_active` | gradient | `0xff8a7cf0` |  | Active border color for window that cannot be added to a group |
 
 ### `c.general.snap`
 
@@ -170,7 +170,7 @@ How windows are drawn: rounded corners, opacity, drop shadow, inner glow, backgr
 | `c.decoration.shadow.range` | int | `4` | 0 to 100 | Shadow range (size) in layout px |
 | `c.decoration.shadow.render_power` | int | `3` | 1 to 4 | In what power to render the falloff (more power, the faster the falloff) |
 | `c.decoration.shadow.sharp` | bool | `false` |  | Whether the shadow should be sharp or not. |
-| `c.decoration.shadow.color` | gradient | `0xee1a1a1a` |  | Shadow's color. Alpha dictates shadow's opacity. |
+| `c.decoration.shadow.color` | gradient | `0xee03060f` |  | Shadow's color. Alpha dictates shadow's opacity. |
 | `c.decoration.shadow.color_inactive` | gradient | unset (falls back) |  | Inactive shadow color. (if not set, will fall back to col.shadow) |
 | `c.decoration.shadow.offset` | Vec2 | `{0, 0}` | x -250 to 250, y -250 to 250 | Shadow's rendering offset. |
 | `c.decoration.shadow.scale` | float | `1` | 0 to 1 | Shadow's scale. |
@@ -182,7 +182,7 @@ How windows are drawn: rounded corners, opacity, drop shadow, inner glow, backgr
 | `c.decoration.glow.enabled` | bool | `false` |  | Enable inner glow on windows |
 | `c.decoration.glow.range` | int | `10` | 0 to 100 | Glow range (size) in layout px |
 | `c.decoration.glow.render_power` | int | `3` | 1 to 4 | In what power to render the falloff (more power, the faster the falloff) |
-| `c.decoration.glow.color` | gradient | `0xee33ccff` |  | Glow's color. Alpha dictates glow's opacity. |
+| `c.decoration.glow.color` | gradient | `0xee2f5fbf` |  | Glow's color. Alpha dictates glow's opacity. |
 | `c.decoration.glow.color_inactive` | gradient | unset (falls back) |  | Inactive glow color. (if not set, will fall back to `c.decoration.glow.color`) |
 
 ### `c.decoration.blur`
@@ -399,10 +399,10 @@ Tabbed window groups: behavior, border colors and the groupbar (`group.groupbar`
 
 | Field | Type | Default | Range / values | Description |
 |---|---|---|---|---|
-| `c.group.col.border_active` | gradient | `0x66ffff00` |  | Active group border color |
-| `c.group.col.border_inactive` | gradient | `0x66777700` |  | Inactive group border color |
-| `c.group.col.border_locked_inactive` | gradient | `0x66ff5500` |  | Inactive locked group border color |
-| `c.group.col.border_locked_active` | gradient | `0x66775500` |  | Active locked group border color |
+| `c.group.col.border_active` | gradient | `0x663d6dcc` |  | Active group border color |
+| `c.group.col.border_inactive` | gradient | `0x661a2338` |  | Inactive group border color |
+| `c.group.col.border_locked_inactive` | gradient | `0x666a5fd0` |  | Inactive locked group border color |
+| `c.group.col.border_locked_active` | gradient | `0x66403a80` |  | Active locked group border color |
 
 ### `c.group.groupbar`
 
@@ -444,10 +444,10 @@ Tabbed window groups: behavior, border colors and the groupbar (`group.groupbar`
 
 | Field | Type | Default | Range / values | Description |
 |---|---|---|---|---|
-| `c.group.groupbar.col.active` | gradient | `0x66ffff00` |  | Active group border color |
-| `c.group.groupbar.col.inactive` | gradient | `0x66777700` |  | Inactive (out of focus) group border color |
-| `c.group.groupbar.col.locked_active` | gradient | `0x66ff5500` |  | Active locked group border color |
-| `c.group.groupbar.col.locked_inactive` | gradient | `0x66775500` |  | Inactive locked group border color |
+| `c.group.groupbar.col.active` | gradient | `0x663d6dcc` |  | Active group border color |
+| `c.group.groupbar.col.inactive` | gradient | `0x661a2338` |  | Inactive (out of focus) group border color |
+| `c.group.groupbar.col.locked_active` | gradient | `0x666a5fd0` |  | Active locked group border color |
+| `c.group.groupbar.col.locked_inactive` | gradient | `0x66403a80` |  | Inactive locked group border color |
 
 ```cpp
 c.group.auto_group = true;
@@ -487,7 +487,7 @@ Everything that does not fit elsewhere: the built-in wallpaper, splash text, DPM
 | `c.misc.allow_session_lock_restore` | bool | `false` |  | If true, will allow you to restart a lockscreen app in case it crashes. |
 | `c.misc.session_lock_xray` | bool | `false` |  | Keep rendering workspaces below your lockscreen |
 | `c.misc.session_lock_blur` | bool | `false` |  | Enable blur for lockscreen. You probably want to enable `session_lock_xray`. |
-| `c.misc.background_color` | color | `0xff111111` |  | Change the background color. |
+| `c.misc.background_color` | color | `0xff050816` |  | Change the background color. |
 | `c.misc.close_special_on_empty` | bool | `true` |  | Close the special workspace if the last window is removed |
 | `c.misc.on_focus_under_fullscreen` | int or name | `2` | 0 to 2; `ignore` = 0, `take_over` = 1, `exit_fullscreen` = 2 | If there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it. |
 | `c.misc.exit_window_retains_fullscreen` | bool | `false` |  | If true, closing a fullscreen window makes the next focused window fullscreen |
