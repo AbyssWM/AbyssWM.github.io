@@ -13,13 +13,13 @@ release: expect bugs and please report them.
 
 | Distribution | How | Status |
 |---|---|---|
-| **Fedora 44 / 45** | [COPR](https://copr.fedorainfracloud.org/coprs/bb8therobot1717/Abyss/) | ✅ 17 / 17 packages built and published |
-| **Debian forky (testing)** | `.deb` from GitHub releases | ✅ 17 / 17 built and installed |
-| **Ubuntu 26.10** | `.deb` from GitHub releases | ✅ 17 / 17 built and installed |
-| **Arch Linux** | [PKGBUILDs](https://github.com/AbyssWM/arch-builds) | ✅ 17 / 17 built with makepkg — not on the AUR yet |
-| **Void Linux** | [Signed XBPS repo](https://github.com/AbyssWM/void) | ✅ 17 / 17 built and published |
+| **Fedora 44 / 45** | [COPR](https://copr.fedorainfracloud.org/coprs/bb8therobot1717/Abyss/) | ✅ 17 / 17 packages, rebuilt automatically on every change |
+| **Debian forky (testing)** | `.deb` from GitHub releases | ✅ 17 / 17 built by CI, `.deb` attached to releases |
+| **Ubuntu 26.10** | `.deb` from GitHub releases | ✅ 17 / 17 built by CI, `.deb` attached to releases |
+| **Arch Linux** | [Signed pacman repo](https://github.com/AbyssWM/arch) | ✅ 17 / 17 built by CI and published |
+| **Void Linux** | [Signed XBPS repo](https://github.com/AbyssWM/void) | ✅ 17 / 17 built by CI and published |
 | **Gentoo** | [Overlay](https://github.com/AbyssWM/gentoo-builds) | ✅ 17 / 17 built with Portage |
-| Debian 13 · LMDE 7 | — | ⚠️ libraries build, Abyssland needs newer xkbcommon, wayland-protocols and libinput |
+| Debian 13 · LMDE 7 | — | ❌ the forky packages do not install (they need libstdc++6 ≥ 16 and glibc ≥ 2.43); Abyssland also needs newer xkbcommon, wayland-protocols and libinput |
 | Ubuntu 26.04 | — | ⚠️ libraries build, Abyssland needs wayland-protocols ≥ 1.49 |
 | Ubuntu 24.04 · Linux Mint 22 | — | ❌ compiler and CMake too old for C++26 |
 
@@ -56,11 +56,12 @@ sudo xbps-install -S abyssland
 ```
 
 ```sh [Arch]
-git clone https://github.com/AbyssWM/arch-builds.git
-cd arch-builds/packages
-for p in abyssutils abyss-scanner abyssland-protocols abyssparse abysswire abyssgraphics abyssal abysstoolkit abysscursor abyssland; do
-  (cd "$p" && makepkg -si --noconfirm) || break
-done
+curl -sL https://abysswm.github.io/arch/abyss.gpg | sudo pacman-key --add -
+sudo pacman-key --lsign-key 7429EE25FE7F6A87620632B360D0CDE7A027F6A6
+# add the repository to /etc/pacman.conf:
+#   [abyss]
+#   Server = https://abysswm.github.io/arch
+sudo pacman -Sy abyssland
 ```
 
 ```sh [Gentoo]
@@ -75,6 +76,12 @@ emerge --ask gui-wm/abyssland
 **Void Linux:** on the first sync xbps asks to import the repository key
 (signed by `bb8TheRobot <bb8therobot85@gmail.com>`) — answer **y**. Updates then
 come with the normal `sudo xbps-install -Su`.
+
+**Arch Linux:** add the `[abyss]` section shown above to `/etc/pacman.conf`
+(for example with `sudo nano /etc/pacman.conf`), then run the `pacman -Sy`
+command. Updates come with the normal `sudo pacman -Syu`. The packages are built
+by CI from the [PKGBUILDs](https://github.com/AbyssWM/arch-builds), which you
+can also build yourself with `makepkg`.
 
 ## Companion tools
 
@@ -92,12 +99,12 @@ so you only install what you want:
 | `abyss-guiutils` | Dialogs, welcome and update screens |
 
 ```sh
-# Fedora (on Void: sudo xbps-install …)
+# Fedora (on Void: sudo xbps-install …, on Arch: sudo pacman -S …)
 sudo dnf install xdg-desktop-portal-abyss abysslock abysspaper abysspolkit abyssdusk abysspicker abyss-guiutils
 ```
 
 On Debian and Ubuntu add `Xdg-desktop-portal-abyss AbyssLock AbyssPaper AbyssPolkit AbyssDusk AbyssPicker Abyss-guiutils`
-to the download loop above. On Arch add the matching package names to the `makepkg` loop.
+to the download loop above. On Arch the same names work with `sudo pacman -S`.
 
 Installing a tool does not configure it or start its user service. See
 [Tools](/wiki/tools) for how each one is set up.

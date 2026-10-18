@@ -59,10 +59,11 @@ All six distribution recipe repositories contain definitions for all 17 code
 projects. Publication status and installation instructions live on the
 [Installation](/wiki/getting-started) page.
 
-- ✅ **Fedora 44 / 45:** COPR, all 17 packages published
-- ✅ **Debian forky / Ubuntu 26.10:** `.deb` files on every GitHub release
-- ✅ **Arch Linux:** PKGBUILDs, all 17 built natively — AUR once registration reopens
-- ✅ **Void Linux:** signed XBPS repository, all 17 published
+- ✅ **Fedora 44 / 45:** COPR, all 17 packages published, rebuilt automatically
+- ✅ **Debian forky / Ubuntu 26.10:** CI builds all 17 `.deb` packages on every recipe change; the `.deb` files are attached to the GitHub releases
+- ✅ **Automatic builds:** CI rebuilds the packages on every recipe change for Arch, Void, Debian and Ubuntu, and COPR does the same for Fedora
+- ✅ **Arch Linux:** signed pacman repository (`abysswm.github.io/arch`), all 17 built by CI; PKGBUILDs stay in arch-builds
+- ✅ **Void Linux:** signed XBPS repository, all 17 built by CI and published
 - ✅ **Gentoo:** source overlay, all 17 built with Portage
 - ⏳ Real-session and hardware tests
 - ⏳ Signed APT repository with automatic updates
