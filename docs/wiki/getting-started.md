@@ -105,23 +105,35 @@ Installing a tool does not configure it or start its user service. See
 ## Start the session
 
 Pick **Abyssland** in your display manager, or run `abyssland` from a TTY.
-`abyssland` is `start-abyssland`, the launcher that watches the compositor, falls
-back to the last good binary and restarts it after `abyssctl reload`. Without a
-D-Bus session (a plain TTY on a system without a user bus) it starts one with
-`dbus-run-session`, so portals and notifications work.
 
-Everything a session needs starts on its own, on every distribution:
+Abyssland sets up the session the way a full desktop does, on every
+distribution, with or without systemd:
 
-- **Audio:** without systemd, Abyssland starts PipeWire fresh for the session,
-  plus WirePlumber and the PulseAudio bridge if PipeWire does not start them.
-  A PipeWire left over from an earlier session is stopped first, because it has
-  lost access to the sound cards. With systemd, the user units do this.
-- **Polkit agent:** if none runs a moment after the start, Abyssland starts
-  `abyss-polkit-agent`, so password prompts work.
+- **Launcher:** `abyssland` is `start-abyssland`, which watches the compositor,
+  falls back to the last good binary and restarts it after `abyssctl reload`.
+  Starting the `Abyssland` binary directly goes through it as well.
+- **D-Bus:** the session bus of the system is used. Without one (a plain TTY on
+  a system without a user bus), `start-abyssland` starts one with
+  `dbus-run-session`. The session variables (`WAYLAND_DISPLAY`,
+  `XDG_CURRENT_DESKTOP`, ...) are exported to D-Bus, and to the systemd user
+  manager when systemd runs.
+- **systemd:** `abyssland-session.target` is started, which brings up
+  `graphical-session.target` and with it the portals, the polkit agent and the
+  XDG autostart entries. Under UWSM, UWSM does this instead.
+- **Without systemd:** PipeWire is started fresh for the session (one left over
+  from an earlier session has lost access to the sound cards), plus WirePlumber
+  and the PulseAudio bridge if PipeWire does not start them, and the XDG
+  autostart entries from `~/.config/autostart` and `/etc/xdg/autostart` meant
+  for this desktop.
+- **Polkit agent:** if none runs a moment after the start, `abyss-polkit-agent`
+  is started.
 - **Portals:** D-Bus starts `xdg-desktop-portal-abyss` when an app needs it.
 
-Turn the first two off with `c.ecosystem.no_session_services = true;` or
-`ABYSSLAND_NO_SESSION_SERVICES=1`.
+Every part can be turned off: `c.ecosystem.no_session_services = true;` (or
+`ABYSSLAND_NO_SESSION_SERVICES=1`) for audio, autostart and the polkit agent,
+`ABYSSLAND_NO_SD_TARGET=1` for the systemd target, `ABYSSLAND_NO_SD_VARS=1` for
+exporting the variables, `ABYSSLAND_NO_START_WRAPPER=1` to run the binary
+without `start-abyssland`.
 
 Packages ship the public default C++ configuration. The
 [configuration guide](/wiki/config/) explains the API and the user

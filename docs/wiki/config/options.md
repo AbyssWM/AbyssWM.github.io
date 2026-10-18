@@ -654,7 +654,7 @@ Switches for the update screen, the donation reminder and permission enforcement
 | `c.ecosystem.no_update_news` | bool | `false` |  | Disable the popup that shows up when you update abyssland to a new version. |
 | `c.ecosystem.no_donation_nag` | bool | `false` |  | Disable the popup that shows up twice a year encouraging to donate. |
 | `c.ecosystem.enforce_permissions` | bool | `false` |  | Whether to enable permission control. |
-| `c.ecosystem.no_session_services` | bool | `false` |  | Do not start the audio server (without systemd) and a polkit agent (if none runs) at start. |
+| `c.ecosystem.no_session_services` | bool | `false` |  | Do not start the session services: audio server and XDG autostart (without systemd), polkit agent (if none runs). |
 
 ```cpp
 c.ecosystem.no_update_news   = true;
