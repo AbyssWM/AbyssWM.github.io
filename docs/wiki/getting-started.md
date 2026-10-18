@@ -112,6 +112,9 @@ distribution, with or without systemd:
 - **Launcher:** `abyssland` is `start-abyssland`, which watches the compositor,
   falls back to the last good binary and restarts it after `abyssctl reload`.
   Starting the `Abyssland` binary directly goes through it as well.
+  Its output and the compositor's early output are also written to
+  `$XDG_RUNTIME_DIR/abyss/start-abyssland.log`, so a failed start or restart
+  can be read after the fact.
 - **D-Bus:** the session bus of the system is used. Without one (a plain TTY on
   a system without a user bus), `start-abyssland` starts one with
   `dbus-run-session`. The session variables (`WAYLAND_DISPLAY`,
