@@ -108,9 +108,20 @@ Pick **Abyssland** in your display manager, or run `abyssland` from a TTY.
 `abyssland` is `start-abyssland`, the launcher that watches the compositor, falls
 back to the last good binary and restarts it after `abyssctl reload`. Without a
 D-Bus session (a plain TTY on a system without a user bus) it starts one with
-`dbus-run-session`, so portals and notifications work. Like Hyprland, Abyssland
-does not start a polkit agent itself: add `exec("/usr/libexec/abyss-polkit-agent")`
-to `c.onStart` if your system does not start one.
+`dbus-run-session`, so portals and notifications work.
+
+Everything a session needs starts on its own, on every distribution:
+
+- **Audio:** without systemd, Abyssland starts PipeWire fresh for the session,
+  plus WirePlumber and the PulseAudio bridge if PipeWire does not start them.
+  A PipeWire left over from an earlier session is stopped first, because it has
+  lost access to the sound cards. With systemd, the user units do this.
+- **Polkit agent:** if none runs a moment after the start, Abyssland starts
+  `abyss-polkit-agent`, so password prompts work.
+- **Portals:** D-Bus starts `xdg-desktop-portal-abyss` when an app needs it.
+
+Turn the first two off with `c.ecosystem.no_session_services = true;` or
+`ABYSSLAND_NO_SESSION_SERVICES=1`.
 
 Packages ship the public default C++ configuration. The
 [configuration guide](/wiki/config/) explains the API and the user
