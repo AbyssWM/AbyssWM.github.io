@@ -119,7 +119,7 @@ abyssctl reload --no-build # re-apply the already compiled config in place
 2. on a compile error shows the first error as a notification, keeps the session running and exits with code 1 (the full log is written to `abyssctl-reload.log` in the build directory),
 3. otherwise saves the installed binary as `Abyssland.last-good`, runs `cmake --install` and asks Abyssland to restart through `start-abyssland`.
 
-A restart closes your windows. **If the new binary dies right after starting, the start wrapper falls back to `Abyssland.last-good`.** That protects you from a binary that crashes. It cannot protect you from a config that compiles and runs but does the wrong thing, such as unbinding every key, so keep a way to start a terminal and to exit bound, and keep a known-good copy of your config.
+A restart closes your windows. **If the new binary dies right after starting, the start wrapper tries it again up to five times (the old instance may still hold the seat) and then falls back to `Abyssland.last-good`.** That protects you from a binary that crashes. It cannot protect you from a config that compiles and runs but does the wrong thing, such as unbinding every key, so keep a way to start a terminal and to exit bound, and keep a known-good copy of your config.
 
 The build directory and prefix can be overridden with `ABYSS_SOURCE_DIR`, `ABYSS_BUILD_DIR` and `ABYSS_PREFIX`, see the [abyssctl reference](/wiki/abyssctl#reload). Useful companions while you edit:
 

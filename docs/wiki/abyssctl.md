@@ -40,13 +40,13 @@ Abyssland's config is C++ compiled into the binary. `abyssctl reload`:
 
 1. builds the target (`cmake --build`, with progress)
 2. on a compile error: shows the first error as a notification, keeps the session running and exits with code 1
-3. otherwise saves the installed binary as `Abyssland.last-good`, installs the new one and asks Abyssland to restart via `start-abyssland` (if the new binary dies right after starting, it falls back to `last-good`)
+3. otherwise saves the installed binary as `Abyssland.last-good`, installs the new one and asks Abyssland to restart via `start-abyssland` (the restart also happens when the old instance crashes while shutting down; a new instance that dies before it is up is tried again up to five times, then `start-abyssland` falls back to `last-good`)
 
 `--no-build` only re-applies the already compiled config in place. `--dry-run` builds but neither installs nor restarts.
 
 **Where it builds.** Without environment overrides `reload` uses the hidden user build in `~/.config/abyss/.build` (`$XDG_CONFIG_HOME/abyss/.build`), which holds the CMake tree, the sources, the logs and the built compositor. On a package installation that directory does not exist yet, so the first `reload` creates it: it takes the Abyssland sources from `~/.config/abyss/.build/src`, cloning them from GitHub if they are missing, and configures them with your `~/.config/abyss/config.hpp`. That needs git, CMake, a C++26 compiler and the `-devel` / `-dev` packages of the Abyss libraries. A source installation whose build tree still exists keeps using that tree as long as there is no user build.
 
-**Where it installs.** The new compositor replaces the installed one in place: `<prefix>/bin/Abyssland`, which is `/usr/bin/Abyssland` for distribution packages. A user build installs only that binary, everything else stays with the package. The previous binary is kept as `Abyssland.last-good` next to it. When the prefix is not writable, `reload` asks for root: with `sudo` when it runs in a terminal, with `pkexec` (your polkit agent shows the prompt) when it runs from a keybind. A package update puts the packaged binary back; run `abyssctl reload` again afterwards.
+**Where it installs.** The new compositor replaces the installed one in place: `<prefix>/bin/Abyssland`, which is `/usr/bin/Abyssland` for distribution packages. A user build installs only that binary and `start-abyssland`, everything else stays with the package. The previous binary is kept as `Abyssland.last-good` next to it. When the prefix is not writable, `reload` asks for root: with `sudo` when it runs in a terminal, with `pkexec` (your polkit agent shows the prompt) when it runs from a keybind. A package update puts the packaged binary back; run `abyssctl reload` again afterwards.
 
 Environment: `ABYSS_SOURCE_DIR` and `ABYSS_BUILD_DIR` override the directories, `ABYSS_PREFIX` the install prefix. With `ABYSS_PREFIX` set, the whole build tree is installed with `cmake --install`.
 
